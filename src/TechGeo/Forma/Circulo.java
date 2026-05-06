@@ -1,8 +1,8 @@
-package TechGeo.Circulo;
+package TechGeo.Forma;
 
 import TechGeo.Ponto.Ponto;
 
-public class Circulo {
+public class Circulo extends Forma {
     private double raio;
     private Ponto ponto;
 

@@ -1,25 +1,38 @@
 package TechGeo.Main;
 
-import TechGeo.Cilindro.Cilindro;
-import TechGeo.Circulo.Circulo;
+import TechGeo.Forma.Cilindro;
+import TechGeo.Forma.Circulo;
+import TechGeo.Forma.Forma;
+import TechGeo.Forma.Volume;
 import TechGeo.Ponto.Ponto;
+
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
 
-        Ponto ponto;
+        ArrayList<Forma> lista = new ArrayList<>();
+        lista.add(new Cilindro(2, 2, new Ponto(2, 2)));
+        lista.add(new Circulo(2, new Ponto(0, 0)));
+        lista.add(new Cilindro(4, 5, new Ponto(6, 2)));
+        lista.add(new Circulo(0.75, new Ponto(1, 0)));
 
-        // Cilindro
-        ponto = new Ponto(2, -3);
-        Cilindro cilindro = new Cilindro(8, 2, ponto);
-        System.out.println("======= CILINDRO =======");
-        System.out.println("Área = " + String.format("%.2f", cilindro.calcularArea()));
-        System.out.println("Volume = " + String.format("%.2f", cilindro.calcularVolume()));
+        for (Forma f : lista){
+            System.out.println(f);
+            System.out.println();
+        }
 
-        // Cilindro
-        ponto = new Ponto(-4, 7);
-        Circulo circulo = new Circulo(10, ponto);
-        System.out.println("======= CIRCULO =======");
-        System.out.println("Área = " + String.format("%.2f", circulo.calcularArea()));
+        System.out.println("Área:");
+        for (Forma f: lista){
+            System.out.println("Área: " + String.format("%.2f", f.calcularArea()) + "m²");
+        }
+
+        System.out.println();
+        System.out.println("Volume: ");
+        for (Forma f : lista){
+            if (f instanceof Volume) {
+                System.out.println("Volume: " + String.format("%.2f", ((Volume) f).calcularVolume()) + "m³");
+            }
+        }
     }
 }

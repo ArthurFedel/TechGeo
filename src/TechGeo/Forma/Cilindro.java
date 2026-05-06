@@ -1,8 +1,8 @@
-package TechGeo.Cilindro;
+package TechGeo.Forma;
 
 import TechGeo.Ponto.Ponto;
 
-public class Cilindro {
+public class Cilindro extends Forma implements Volume {
     private double raio;
     private double altura;
     private Ponto ponto;
